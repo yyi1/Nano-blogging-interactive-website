@@ -52,6 +52,7 @@ Functions:
     the newest comment on that post.
           ○ It should be clear in your grumblr design which comments belong to which posts.
           ○ Adding a new comment should not require refreshing the entire HTML page.
+    ● Deployed to Heroku with data stored on AWS S3
 
 
 Website map:
