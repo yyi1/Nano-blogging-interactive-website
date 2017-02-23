@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>This is the profile page</title>
+{% endblock %}
+
+{% block welcome %}
+{% endblock %}
+
+{% block content %}
+<hr>
+<div class="container">
+    <!-- Profile Row -->
+    <div class="row">
+        <input type="hidden" id="profile-id" value="{{ profile.id}}">
+        <div class="col-lg-12">
+            <h1 class="page-header">View profile
+                <small>of {{current_user.username}}</small>
+            </h1>
+            <div class="col-lg-4 col-sm-6 text-center">
+                <img src="{% url 'photo' profile.id %}" width="250" alt="{{profile.user.username}}">
+            </div>
+            <div class="col-lg-6 col-sm-6 text-left">
+                <h3>{{profile.user.username}}
+                    <small>{{profile.bio}}</small>
+                </h3>
+                <div class="col-lg-6 text-left">
+                    <br>
+                    <p><b>First name:</b> {{profile.first_name}}</p>
+                    <p><b>Last name:</b> {{profile.last_name}}</p>
+                    <p><b>Email:</b> {{profile.email}}</p>
+                    <p><b>Age:</b> {{profile.age}}</p>
+                    {% if unfollow %}
+                    <a href="{% url 'edit_follow' current_user.id %}">unfollow</a>
+                    {% endif %}
+                    {% if follow %}
+                    <a href="{% url 'edit_follow' current_user.id %}">follow</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <!-- Posts Row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 class="page-header">Posts</h2>
+                <!-- all the posts -->
+                <script>var commentForm = '{{commentForm}}' </script>
+                <div id="profile-posts">
+                </div>
+            </div>
+        </div>
+        <div class="next-button-set2">
+            <button type="button" class="btn btn-sm btn-default">Previous</button>
+            <button type="button" class="btn btn-sm btn-primary">Next</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

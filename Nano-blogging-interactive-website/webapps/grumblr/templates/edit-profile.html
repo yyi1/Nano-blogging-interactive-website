@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>This is the profile edit page</title>
+{% endblock %}
+
+{% block welcome %}
+{% endblock %}
+
+{% block content %}
+<hr>
+<div class="container">
+    <!-- Profile Row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Edit profile
+                <small>of {{user}}</small>
+            </h1>
+            <div class="col-lg-4 col-sm-6 text-center">
+                {% if form.picture.value %}
+                <img src="{% url 'photo' id %}" width="250"
+                     alt="{{form.first_name.value}} {{form.last_name.value}}">
+                {% endif %}
+            </div>
+            <form enctype="multipart/form-data" action="{% url 'edit' id %}" method="post">
+                <div class="col-lg-6 col-sm-6 text-left">
+                    <table>
+                        <tr>
+                            <td> {{ form.first_name.label_tag }} &nbsp</td>
+                            <td> {{ form.first_name }}</td>
+                        </tr>
+                        <tr>
+                            <td> {{ form.last_name.label_tag }} &nbsp</td>
+                            <td> {{ form.last_name }}</td>
+                        </tr>
+                        <tr>
+                            <td> {{ form.email.label_tag }} &nbsp</td>
+                            <td> {{ form.email }}</td>
+                        </tr>
+                        <tr>
+                            <td> {{ form.age.label_tag }} &nbsp</td>
+                            <td> {{ form.age }}</td>
+                        </tr>
+                        <tr>
+                            <td> {{ form.bio.label_tag }} &nbsp</td>
+                            <td> {{ form.bio }}</td>
+                        </tr>
+                        <tr>
+                            <td> {{ form.password.label_tag }} &nbsp</td>
+                            <td> {{ form.password }}</td>
+                        </tr>
+                    </table>
+                    <br>
+                    <input id="id_picture" name="picture" type="file">
+                    <br>
+                    <input type="submit" class="btn btn-sm btn-primary" value="Save profile">
+                    {% csrf_token %}
+                    <a href="{% url 'profile' id %}">
+                        <input type="button" class="btn btn-sm btn-default" value="Cancel">
+                    </a>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

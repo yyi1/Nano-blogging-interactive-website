@@ -1,0 +1,1 @@
+{"id":"{{post.id}}","photo": "{% url 'photo' post.user.id %}", "username":"{{post.user.username}}", "profile":"{% url 'profile' post.user.id %}", "time":"{{post.time}}", "text":"{{post.text}}", "comments":{% include 'comments.json' %}}

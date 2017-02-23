@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>This is the login page</title>
+{% endblock %}
+
+{% block css %}
+{% load static %}
+<link type="text/css" href={% static "css/login.css" %} rel="stylesheet">
+{% endblock %}
+
+{% block navigation %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form class="form-signin" method="post" action="{% url 'login' %}">
+        <h3 class="form-signin-heading">Please sign in</h3>
+        {% if form.errors %}
+        <p>Incorrect user name and password...</p>
+        {% endif %}
+        <br>
+        <table>
+            <tr>
+                <td> {{ form.username.label_tag }} &nbsp </td>
+                <td> {{ form.username }} </td>
+            </tr>
+            <tr>
+                <td> {{ form.password.label_tag }} &nbsp </td>
+                <td> {{ form.password }} </td>
+            </tr>
+        </table>
+
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me &nbsp &nbsp
+            </label>
+            <a href="password">Forget password?</a>
+        </div>
+        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Log in">
+        <p class="create-account">
+            Don't have an account? <a href="register">Sign up »</a>
+        </p>
+        <input type="hidden" name="next" value="{{ next }}" />
+        {% csrf_token %}
+    </form>
+</div>
+{% endblock %}
+
+{% block foot %}
+<footer class="login-footer">
+    <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+</footer>
+{% endblock %}
+
+

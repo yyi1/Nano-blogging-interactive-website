@@ -1,0 +1,89 @@
+/* 
+Based on the Sign-in page on Bootstrap: http://getbootstrap.com/examples/signin/
+Customize the signin.css of the example.
+*/
+
+body {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  background-size: cover;
+  background-repeat:no-repeat;
+  background-image: url(../img/bg2.jpg);
+  background-color: #eee;
+}
+
+.create-account {
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+/* apply these settings when using bg1.jpg
+.starter-template h1 {
+    color: white;
+}
+.form-signin h3 {
+    color: white;
+}
+.checkbox label {
+    color: white;
+}*/
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+
+.form-signin .checkbox {
+  font-weight: normal;
+}
+
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+
+.form-signin input[type="text"] {
+  margin-bottom: 10px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+.login-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 0;
+    color: #999;
+    text-align: center;
+    background-color: #eee;
+    border-top: 1px solid #e5e5e5;
+}
+
+.starter-template {
+    padding-top: 10px;
+    padding-right: 15px;
+    padding-bottom: 40px;
+    padding-left: 15px;
+    text-align: center;
+}

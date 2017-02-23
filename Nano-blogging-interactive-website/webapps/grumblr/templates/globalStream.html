@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block welcome %}
+{% endblock %}
+
+{% block content %}
+<!-- Full Width Image Header with Logo -->
+<!-- This header component is from: http://startbootstrap.com/-->
+<!-- Image backgrounds are set within the main.css file. -->
+<header class="image-bg-fluid-height">
+    {% load static %}
+    <img class="img-center" src={% static "img/logo.png" %} alt="">
+</header>
+
+<br>
+<div class="container">
+    <!-- left column -->
+    <div class="col-md-8">
+        <!-- text area -->
+        <div class="form-group">
+            <form action="{% url 'addpost' %}" method="post">
+                {% for error in errors %}
+                <label> {{ error }} </label>
+                {% endfor %}
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">What's on your mind?</h3>
+                    </div>
+                    <div class="panel-body text-center">
+                        {{form}}
+                        <input type="submit" class="btn btn-sm btn-primary" value="Post"></input>
+                    </div>
+                </div>
+                {% csrf_token %}
+            </form>
+            <script>var commentForm = '{{commentForm}}' </script>
+        </div>
+
+        <hr>
+        <h3>All the posts:</h3>
+        <!-- all the posts -->
+        <div id="all-posts">
+        </div>
+
+
+        <div class="next-button-set1">
+            <button type="button" class="btn btn-sm btn-default">Previous</button>
+            <button type="button" class="btn btn-sm btn-primary">Next</button>
+        </div>
+    </div>
+
+
+    <!-- right column -->
+    <div class="col-md-4">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Notification 1</h3>
+            </div>
+            <div class="panel-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </div>
+        </div>
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">Notification 2</h3>
+            </div>
+            <div class="panel-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </div>
+        </div>
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h3 class="panel-title">Notification 3</h3>
+            </div>
+            <div class="panel-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </div>
+        </div>
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title">Notification 4</h3>
+            </div>
+            <div class="panel-body">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>This is the registration page</title>
+{% endblock %}
+
+{% block css %}
+{% load static %}
+<link type="text/css" href={% static "css/login.css" %} rel="stylesheet">
+{% endblock %}
+
+{% block navigation %}
+{% endblock %}
+
+{% block content %}
+<form class="form-signin" method="post" action="{% url 'register' %}">
+    <h3 class="form-signin-heading">Join Grumblr today</h3>
+    {% for error in errors %}
+    <p>{{ error }}</p>
+    {% endfor %}
+    <br>
+    <table>
+        {% for field in form.visible_fields %}
+        <tr>
+            <td> {{field.label_tag}} </td>
+            <td> {{field}} </td>
+            <td style="color: red"> {{field.errors}} </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign up">
+    <p class="create-account">
+        Already have an account? <a href="login">Log in »</a>
+    </p>
+    {% for field in form.hidden_fields %}
+    {{field}}
+    {% endfor %}
+    {% csrf_token %}
+</form>
+{% endblock %}
+
+{% block foot %}
+<footer class="login-footer">
+    <p>&copy; 2016 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+</footer>
+{% endblock %}
+
+<table>
+{% for field in form.visible_fields %}
+<tr>
+  <td>{{field.label_tag}}</td>
+  <td>{{field}}</td>
+  <td style="color: red">{{field.errors}}</td>
+</tr>
+{% endfor %}
+</table>

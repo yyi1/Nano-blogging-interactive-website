@@ -1,0 +1,56 @@
+/* 
+Customize the offcanvas.css of the off-canvas example: http://getbootstrap.com/examples/offcanvas/
+Customize the header component from: http://startbootstrap.com/
+*/
+
+.welcome-info {
+    color: #9d9d9d;
+}
+
+.image-bg-fluid-height {
+    text-align: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.image-bg-fluid-height {
+    background: url('../img/bg2.jpg') no-repeat center center scroll;
+    padding: 100px 0;
+}
+
+.img-center {
+    margin: 0 auto;
+}
+
+.main-footer {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: 100px;
+    color: #999;
+    text-align: center;
+    background-color: #333;
+    border-top: 1px solid #e5e5e5;
+}
+
+.well, .form-group{
+    margin: 20px;
+}
+
+.col-md-4 {
+    margin-top: 40px;
+}
+
+.post-button-set {
+    margin-left: 630px;
+    margin-top: 10px;
+}
+
+.next-button-set1 {
+    margin-left: 300px;
+}
+
+.next-button-set2 {
+    margin-left: 500px;
+}

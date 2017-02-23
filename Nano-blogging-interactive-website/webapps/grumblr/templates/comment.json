@@ -1,0 +1,1 @@
+{"id":"{{comment.id}}","photo": "{% url 'photo' comment.user.id %}", "username":"{{comment.user.username}}", "profile":"{% url 'profile' comment.user.id %}", "time":"{{comment.time}}", "text":"{{comment.text}}"}
